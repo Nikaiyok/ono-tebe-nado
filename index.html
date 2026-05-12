@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
     <section class="hero">
         <div class="hero__content">
             <h1 class="hero__title">
@@ -25,7 +25,7 @@
             </h1>
             <p class="hero__subtitle">ЧИТАЙ</p>
             <p class="hero__description">Твой личный каталог книг — открывай новые миры</p>
-            <button class="hero__btn" id="goToCatalogBtn">ПЕРЕЙТИ К КАТАЛОГУ</button>
+            <button class="hero__btn" id="goToCatalogBtn" aria-label="Перейти к каталогу книг">ПЕРЕЙТИ К КАТАЛОГУ</button>
         </div>
         <div class="hero__bookshelf"></div>
     </section>
@@ -33,21 +33,21 @@
     <!-- НАВИГАЦИЯ -->
     <header class="header" id="header">
         <div class="header__logo">
-            <a href="/" class="header__logo-link">
+            <a href="https://i.pinimg.com/1200x/bc/bb/d7/bcbbd719f186b56391ceb9665d9bf67e.jpg" class="header__logo-link" aria-label="На главную">
                 <div class="header__logo-icon"></div>
                 <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
             </a>
         </div>
         <nav class="header__nav">
-            <button class="nav__link active" data-page="catalog">КАТАЛОГ</button>
-            <button class="nav__link" data-page="favorites">ИЗБРАННОЕ</button>
+            <button class="nav__link active" data-page="catalog" aria-label="Перейти в каталог">КАТАЛОГ</button>
+            <button class="nav__link" data-page="favorites" aria-label="Перейти в избранное">ИЗБРАННОЕ</button>
         </nav>
-        <div class="header__favorites">
+        <div class="header__favorites" aria-label="Количество книг в избранном">
             <span id="favoriteCount">0</span>
         </div>
     </header>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ (ТОЛЬКО ОДИН MAIN) -->
     <main class="main-content">
         <section id="catalogPage" class="page active">
             <div class="catalog-header">
@@ -57,9 +57,9 @@
 
             <div class="filters">
                 <div class="filters__search">
-                    <input type="text" id="searchInput" placeholder="Поиск по названию или автору...">
+                    <input type="text" id="searchInput" placeholder="Поиск по названию или автору..." aria-label="Поиск книг">
                 </div>
-                <div class="filters__categories">
+                <div class="filters__categories" aria-label="Фильтр по жанрам">
                     <button class="filter-btn active" data-genre="all">ВСЕ</button>
                     <button class="filter-btn" data-genre="Классика">КЛАССИКА</button>
                     <button class="filter-btn" data-genre="Антиутопия">АНТИТОПИЯ</button>
@@ -69,7 +69,7 @@
                     <button class="filter-btn" data-genre="Философия">ФИЛОСОФИЯ</button>
                 </div>
                 <div class="filters__sort">
-                    <select id="sortSelect">
+                    <select id="sortSelect" aria-label="Сортировка книг">
                         <option value="title">По названию</option>
                         <option value="author">По автору</option>
                         <option value="year">По году</option>
@@ -106,9 +106,9 @@
     </footer>
 
     <!-- МОДАЛЬНОЕ ОКНО -->
-    <div id="modal" class="modal">
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Подробная информация о книге">
         <div class="modal-content">
-            <span class="modal-close">✕</span>
+            <button class="modal-close" aria-label="Закрыть">✕</button>
             <div id="modalBody"></div>
         </div>
     </div>
