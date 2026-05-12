@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* ===== ШРИФТЫ (подключены через HTML) ===== */
 
 /* ===== ГЛОБАЛЬНЫЕ СТИЛИ ===== */
 * {
@@ -12,12 +12,13 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'Georgia', 'Times New Roman', serif;
+    font-family: 'Raleway', sans-serif;
     background-color: #F5F0E6;
     color: #2C2418;
     line-height: 1.5;
 }
 
+/* ===== HERO (ГЛАВНЫЙ ЭКРАН) ===== */
 .hero {
     min-height: 100vh;
     background: linear-gradient(135deg, #2C2418 0%, #3D3224 50%, #2C2418 100%);
@@ -29,18 +30,13 @@ body {
     overflow: hidden;
 }
 
+/* ВЕРТИКАЛЬНЫЕ ПОЛОСКИ */
 .hero::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: repeating-linear-gradient(
-        90deg,
-        rgba(212, 163, 115, 0.08) 0px,
-        rgba(212, 163, 115, 0.08) 1px,
-        transparent 1px,
-        transparent 40px
-    );
+    background-image: repeating-linear-gradient(90deg, rgba(212, 163, 115, 0.08) 0px, rgba(212, 163, 115, 0.08) 1px, transparent 1px, transparent 40px);
     pointer-events: none;
     z-index: 1;
 }
@@ -52,7 +48,7 @@ body {
     width: 100%;
     height: 80px;
     background: linear-gradient(to bottom, #1A1510, #0D0A07);
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
     z-index: 2;
 }
 
@@ -63,13 +59,7 @@ body {
     left: 0;
     width: 100%;
     height: 10px;
-    background: repeating-linear-gradient(
-        90deg,
-        #8B5E3C 0px,
-        #8B5E3C 30px,
-        #6B4226 30px,
-        #6B4226 60px
-    );
+    background: repeating-linear-gradient(90deg, #8B5E3C 0px, #8B5E3C 30px, #6B4226 30px, #6B4226 60px);
 }
 
 .hero__content {
@@ -82,13 +72,17 @@ body {
     display: block;
     font-size: 72px;
     font-weight: 800;
-    letter-spacing: 8px;
+    letter-spacing: 12px;
     color: #F5F0E6;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero__title-line:first-child {
     letter-spacing: 12px;
+}
+
+.hero__title-line:last-child {
+    letter-spacing: 8px;
 }
 
 .hero__subtitle {
@@ -117,7 +111,7 @@ body {
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .hero__btn:hover {
@@ -126,7 +120,7 @@ body {
     transform: translateY(-2px);
 }
 
-
+/* ===== НАВИГАЦИЯ ===== */
 .header {
     background: #FFF8F0;
     border-bottom: 1px solid #E8DCC8;
@@ -146,15 +140,18 @@ body {
     display: flex;
 }
 
-.header__logo {
+.header__logo-link {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
 }
 
-
 .header__logo-icon {
-    display: none;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #8B5E3C, #6B4226);
+    border-radius: 4px;
 }
 
 .header__logo-text {
@@ -162,6 +159,7 @@ body {
     font-size: 14px;
     letter-spacing: 2px;
     color: #5C3A1E;
+    font-family: 'Raleway', sans-serif;
 }
 
 .header__nav {
@@ -179,6 +177,7 @@ body {
     cursor: pointer;
     padding: 8px 0;
     transition: color 0.2s;
+    font-family: 'Raleway', sans-serif;
 }
 
 .nav__link:hover {
@@ -200,14 +199,19 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-family: 'Raleway', sans-serif;
 }
 
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
+/* ===== СТРАНИЦЫ ===== */
 .page {
     display: none;
     padding: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
 }
 
 .page.active {
@@ -216,11 +220,17 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-
+/* ===== КАТАЛОГ ===== */
 .catalog-header {
     margin-bottom: 32px;
     text-align: center;
@@ -230,14 +240,16 @@ body {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 8px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .catalog__count {
     color: #8B5E3C;
     font-size: 14px;
+    font-family: 'Raleway', sans-serif;
 }
 
-
+/* ===== ФИЛЬТРЫ ===== */
 .filters {
     background: #FFF8F0;
     border-radius: 20px;
@@ -254,7 +266,7 @@ body {
     padding: 14px 20px;
     font-size: 14px;
     margin-bottom: 20px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .filters__search input:focus {
@@ -279,6 +291,7 @@ body {
     color: #6B5B4F;
     cursor: pointer;
     transition: all 0.2s;
+    font-family: 'Raleway', sans-serif;
 }
 
 .filter-btn:hover {
@@ -298,16 +311,17 @@ body {
     padding: 10px 16px;
     font-size: 14px;
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
-
+/* ===== СЕТКА КАРТОЧЕК ===== */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 28px;
 }
 
+/* ===== КАРТОЧКА КНИГИ ===== */
 .book-card {
     background: #FFFFFF;
     border-radius: 20px;
@@ -315,12 +329,12 @@ body {
     transition: all 0.25s ease;
     cursor: pointer;
     border: 1px solid #E8DCC8;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .book-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
     border-color: #D4A373;
 }
 
@@ -347,6 +361,7 @@ body {
     font-weight: 700;
     margin-bottom: 6px;
     color: #2C2418;
+    font-family: 'Raleway', sans-serif;
 }
 
 .book-card__author {
@@ -354,6 +369,7 @@ body {
     color: #8B5E3C;
     margin-bottom: 8px;
     font-weight: 500;
+    font-family: 'Raleway', sans-serif;
 }
 
 .book-card__meta {
@@ -362,6 +378,7 @@ body {
     font-size: 12px;
     color: #9B8A74;
     margin-bottom: 8px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .book-card__genre {
@@ -373,6 +390,7 @@ body {
     font-weight: 700;
     color: #8B5E3C;
     margin-bottom: 12px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .book-card__rating {
@@ -392,11 +410,13 @@ body {
     font-size: 13px;
     font-weight: 600;
     color: #2C2418;
+    font-family: 'Raleway', sans-serif;
 }
 
 .rating-count {
     font-size: 11px;
     color: #9B8A74;
+    font-family: 'Raleway', sans-serif;
 }
 
 .book-card__description {
@@ -408,6 +428,7 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 16px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .book-card__buttons {
@@ -416,7 +437,7 @@ body {
     padding: 0 20px 20px;
 }
 
-.fav-btn, .rate-btn {
+.fav-btn {
     flex: 1;
     padding: 10px;
     border-radius: 40px;
@@ -424,10 +445,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
-    font-family: 'Inter', sans-serif;
-}
-
-.fav-btn {
+    font-family: 'Raleway', sans-serif;
     background: transparent;
     border: 1px solid #E8DCC8;
     color: #6B5B4F;
@@ -445,6 +463,14 @@ body {
 }
 
 .rate-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Raleway', sans-serif;
     background: #F0E8DC;
     border: 1px solid #E8DCC8;
     color: #6B5B4F;
@@ -455,7 +481,7 @@ body {
     color: #8B5E3C;
 }
 
-
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
 .modal {
     display: none;
     position: fixed;
@@ -483,8 +509,14 @@ body {
 }
 
 @keyframes modalFadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .modal-close {
@@ -515,11 +547,13 @@ body {
     font-size: 26px;
     margin-bottom: 12px;
     color: #2C2418;
+    font-family: 'Raleway', sans-serif;
 }
 
 .modal-body p {
     margin-bottom: 12px;
     color: #6B5B4F;
+    font-family: 'Raleway', sans-serif;
 }
 
 .modal-body strong {
@@ -552,6 +586,7 @@ body {
     text-align: center;
     padding: 60px 20px;
     color: #9B8A74;
+    font-family: 'Raleway', sans-serif;
 }
 
 .empty-state span {
@@ -560,7 +595,7 @@ body {
     margin-bottom: 16px;
 }
 
-
+/* ===== ПОДВАЛ (FOOTER) ===== */
 .footer {
     background: #2C2418;
     color: #C4B5A0;
@@ -582,6 +617,7 @@ body {
     margin-bottom: 20px;
     font-weight: 700;
     color: #D4A373;
+    font-family: 'Raleway', sans-serif;
 }
 
 .footer__logo-icon {
@@ -591,52 +627,88 @@ body {
 .footer__copy {
     font-size: 12px;
     margin-bottom: 8px;
+    font-family: 'Raleway', sans-serif;
 }
 
+.footer__contacts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-style: normal;
+}
+
+.footer__phone,
 .footer__email {
     font-size: 14px;
     color: #D4A373;
     text-decoration: none;
+    font-family: 'Raleway', sans-serif;
 }
 
+.footer__phone:hover,
 .footer__email:hover {
     text-decoration: underline;
 }
 
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1100px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .page {
+        padding: 30px;
+    }
+
+    .filters__categories {
+        justify-content: center;
+    }
+}
 
 @media (max-width: 768px) {
     .hero__title-line {
         font-size: 36px;
         letter-spacing: 4px;
     }
-    
+
     .hero__title-line:first-child {
         letter-spacing: 6px;
     }
-    
+
+    .hero__title-line:last-child {
+        letter-spacing: 4px;
+    }
+
     .hero__subtitle {
         font-size: 20px;
         letter-spacing: 4px;
     }
-    
+
     .header {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .page {
         padding: 20px;
     }
-    
+
     .filters__categories {
         justify-content: center;
     }
-    
+
     .catalog-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer {
         padding: 30px 20px;
+    }
+
+    .footer__contacts {
+        flex-direction: column;
+        gap: 10px;
     }
 }
