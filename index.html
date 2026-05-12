@@ -6,17 +6,16 @@
     <meta name="description" content="Книжная полка — личный каталог книг">
     <title>Книжная полка — каталог книг</title>
     
-    <!-- 1. СНАЧАЛА ПОДКЛЮЧАЕМ ШРИФТЫ -->
+    <!-- СНАЧАЛА ШРИФТЫ -->
     <link rel="stylesheet" href="./fonts/fonts.css">
     
-    <!-- 2. ПОТОМ ГЛОБАЛЬНЫЕ СТИЛИ -->
+    <!-- ПОТОМ ГЛОБАЛЬНЫЕ СТИЛИ -->
     <link rel="stylesheet" href="./styles/global.css">
     
-    <!-- 3. ПОТОМ ЛОКАЛЬНЫЕ СТИЛИ -->
+    <!-- ПОТОМ ЛОКАЛЬНЫЕ СТИЛИ -->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
     <section class="hero">
         <div class="hero__content">
             <h1 class="hero__title">
@@ -30,10 +29,9 @@
         <div class="hero__bookshelf"></div>
     </section>
 
-    <!-- НАВИГАЦИЯ -->
     <header class="header" id="header">
         <div class="header__logo">
-            <!-- ЛОГОТИП ОБЁРНУТ В ССЫЛКУ (ОШИБКА 4 ИСПРАВЛЕНА) -->
+            <!-- ЛОГОТИП ОБЁРНУТ В ССЫЛКУ (ОШИБКА 3 ИСПРАВЛЕНА) -->
             <a href="/" class="header__logo-link">
                 <div class="header__logo-icon"></div>
                 <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
@@ -48,7 +46,6 @@
         </div>
     </header>
 
-    <!-- ТОЛЬКО ОДИН MAIN -->
     <main class="main-content">
         <section id="catalogPage" class="page active">
             <div class="catalog-header">
@@ -91,7 +88,6 @@
         </section>
     </main>
 
-    <!-- СЕМАНТИЧЕСКИЙ FOOTER -->
     <footer class="footer">
         <div class="footer__content">
             <div class="footer__logo">
@@ -100,14 +96,12 @@
             </div>
             <p class="footer__copy">© 2024 Книжная полка. Все права защищены.</p>
             <address class="footer__contacts">
-                <!-- ПРЕФИКСЫ TEL: И MAILTO: -->
                 <a href="tel:+74951234567" class="footer__phone">+7 (495) 123-45-67</a>
                 <a href="mailto:club@bookclub.ru" class="footer__email">club@bookclub.ru</a>
             </address>
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="modal-close">✕</span>
