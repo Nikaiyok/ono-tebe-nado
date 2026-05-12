@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Книжная полка — личный каталог книг">
     <title>Книжная полка — каталог книг</title>
-    <!-- ПРАВИЛЬНЫЙ ПОРЯДОК: сначала шрифт, потом свои стили -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- 1. СНАЧАЛА ПОДКЛЮЧАЕМ ШРИФТЫ -->
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    
+    <!-- 2. ПОТОМ ГЛОБАЛЬНЫЕ СТИЛИ -->
+    <link rel="stylesheet" href="./styles/global.css">
+    
+    <!-- 3. ПОТОМ ЛОКАЛЬНЫЕ СТИЛИ -->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
@@ -29,7 +33,7 @@
     <!-- НАВИГАЦИЯ -->
     <header class="header" id="header">
         <div class="header__logo">
-            <!-- ЛОГОТИП ОБЁРНУТ В ССЫЛКУ -->
+            <!-- ЛОГОТИП ОБЁРНУТ В ССЫЛКУ (ОШИБКА 4 ИСПРАВЛЕНА) -->
             <a href="/" class="header__logo-link">
                 <div class="header__logo-icon"></div>
                 <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
