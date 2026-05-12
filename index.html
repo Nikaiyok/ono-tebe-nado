@@ -1,10 +1,86 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Оно тебе надо — аукцион вещей, в которые никто не верил</title>
-  </head>
-  <body></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжная полка — личный каталог книг</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <section class="hero" id="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                <span class="hero__title-line">КНИЖНАЯ</span>
+                <span class="hero__title-line">ПОЛКА</span>
+            </h1>
+            <p class="hero__subtitle">ЧИТАЙ</p>
+            <p class="hero__description">Твой личный каталог книг — оценивай, сохраняй в избранное и открывай новые миры</p>
+            <button class="hero__btn" id="goToCatalogBtn">ПЕРЕЙТИ К КАТАЛОГУ</button>
+        </div>
+        <div class="hero__bookshelf"></div>
+    </section>
+
+    <header class="header" id="header">
+        <div class="header__logo">
+            <div class="header__logo-icon"></div>
+            <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
+        </div>
+        <nav class="header__nav">
+            <button class="nav__link active" data-page="catalog">КАТАЛОГ</button>
+            <button class="nav__link" data-page="favorites">ИЗБРАННОЕ</button>
+        </nav>
+        <div class="header__favorites">
+            <span class="heart-icon">❤️</span>
+            <span id="favoriteCount">0</span>
+        </div>
+    </header>
+
+    <main id="catalogPage" class="page active">
+        <div class="catalog-header">
+            <h2 class="catalog__title">Каталог книг</h2>
+            <p class="catalog__count"><span id="booksCount">0</span> книг в коллекции</p>
+        </div>
+
+        <div class="filters">
+            <div class="filters__search">
+                <input type="text" id="searchInput" placeholder="Поиск по названию или автору...">
+            </div>
+            <div class="filters__categories">
+                <button class="filter-btn active" data-genre="all">ВСЕ</button>
+                <button class="filter-btn" data-genre="Классика">КЛАССИКА</button>
+                <button class="filter-btn" data-genre="Антиутопия">АНТИТОПИЯ</button>
+                <button class="filter-btn" data-genre="Фэнтези">ФЭНТЕЗИ</button>
+                <button class="filter-btn" data-genre="Фантастика">ФАНТАСТИКА</button>
+                <button class="filter-btn" data-genre="Детектив">ДЕТЕКТИВ</button>
+                <button class="filter-btn" data-genre="Философия">ФИЛОСОФИЯ</button>
+            </div>
+            <div class="filters__sort">
+                <select id="sortSelect">
+                    <option value="title">По названию</option>
+                    <option value="author">По автору</option>
+                    <option value="year">По году</option>
+                    <option value="rating">По рейтингу</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+    </main>
+
+    <main id="favoritesPage" class="page">
+        <div class="catalog-header">
+            <h2 class="catalog__title">Избранное</h2>
+            <p class="catalog__count">Ваши любимые книги</p>
+        </div>
+        <div class="catalog-grid" id="favoritesGrid"></div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">✕</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
 </html>
