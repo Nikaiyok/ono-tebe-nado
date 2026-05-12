@@ -6,16 +6,17 @@
     <meta name="description" content="Книжная полка — личный каталог книг">
     <title>Книжная полка — каталог книг</title>
     
-    <!-- СНАЧАЛА ШРИФТЫ -->
+    <!-- ПОДКЛЮЧЕНИЕ ШРИФТОВ (ТОЛЬКО RALEWAY) -->
     <link rel="stylesheet" href="./fonts/fonts.css">
     
-    <!-- ПОТОМ ГЛОБАЛЬНЫЕ СТИЛИ -->
+    <!-- ПОДКЛЮЧЕНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ -->
     <link rel="stylesheet" href="./styles/global.css">
     
-    <!-- ПОТОМ ЛОКАЛЬНЫЕ СТИЛИ -->
+    <!-- ПОДКЛЮЧЕНИЕ ОСНОВНЫХ СТИЛЕЙ -->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+    <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
         <div class="hero__content">
             <h1 class="hero__title">
@@ -29,9 +30,9 @@
         <div class="hero__bookshelf"></div>
     </section>
 
+    <!-- НАВИГАЦИЯ -->
     <header class="header" id="header">
         <div class="header__logo">
-            <!-- ЛОГОТИП ОБЁРНУТ В ССЫЛКУ (ОШИБКА 3 ИСПРАВЛЕНА) -->
             <a href="/" class="header__logo-link">
                 <div class="header__logo-icon"></div>
                 <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
@@ -46,6 +47,7 @@
         </div>
     </header>
 
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="main-content">
         <section id="catalogPage" class="page active">
             <div class="catalog-header">
@@ -88,6 +90,7 @@
         </section>
     </main>
 
+    <!-- ПОДВАЛ -->
     <footer class="footer">
         <div class="footer__content">
             <div class="footer__logo">
@@ -102,6 +105,7 @@
         </div>
     </footer>
 
+    <!-- МОДАЛЬНОЕ ОКНО -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="modal-close">✕</span>
