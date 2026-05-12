@@ -29,25 +29,22 @@
         </div>
         <div class="hero__bookshelf"></div>
     </section>
-
-    <!-- НАВИГАЦИЯ -->
-    <header class="header" id="header">
-        <div class="header__logo">
-            <a href="https://i.pinimg.com/1200x/bc/bb/d7/bcbbd719f186b56391ceb9665d9bf67e.jpg" class="header__logo-link" aria-label="На главную">
-                <div class="header__logo-icon"></div>
-                <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
-            </a>
-        </div>
-        <nav class="header__nav">
-            <button class="nav__link active" data-page="catalog" aria-label="Перейти в каталог">КАТАЛОГ</button>
-            <button class="nav__link" data-page="favorites" aria-label="Перейти в избранное">ИЗБРАННОЕ</button>
-        </nav>
-        <div class="header__favorites" aria-label="Количество книг в избранном">
-            <span id="favoriteCount">0</span>
-        </div>
-    </header>
-
-    <!-- ОСНОВНОЙ КОНТЕНТ (ТОЛЬКО ОДИН MAIN) -->
+<header class="header" id="header">
+    <div class="header__logo">
+        <a href="/" class="header__logo-link">
+            <div class="header__logo-icon"></div>
+            <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
+        </a>
+    </div>
+    <nav class="header__nav">
+        <button class="nav__link active" data-page="catalog">КАТАЛОГ</button>
+        <button class="nav__link" data-page="favorites">ИЗБРАННОЕ</button>
+    </nav>
+    <div class="header__favorites">
+        <span id="favoriteCount">0</span>
+    </div>
+</header>
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="main-content">
         <section id="catalogPage" class="page active">
             <div class="catalog-header">
@@ -59,7 +56,7 @@
                 <div class="filters__search">
                     <input type="text" id="searchInput" placeholder="Поиск по названию или автору..." aria-label="Поиск книг">
                 </div>
-                <div class="filters__categories" aria-label="Фильтр по жанрам">
+                <div class="filters__categories">
                     <button class="filter-btn active" data-genre="all">ВСЕ</button>
                     <button class="filter-btn" data-genre="Классика">КЛАССИКА</button>
                     <button class="filter-btn" data-genre="Антиутопия">АНТИТОПИЯ</button>
