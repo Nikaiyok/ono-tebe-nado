@@ -1,141 +1,118 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Книжная полка — аукцион редких книг">
-  <title>Книжная полка | Аукцион редкой книги</title>
-  
-  <!-- ПОДКЛЮЧЕНИЕ ШРИФТОВ (правильный путь) -->
-  <link rel="stylesheet" href="./fonts/fonts.css">
-  
-  <!-- ПОДКЛЮЧЕНИЕ СТИЛЕЙ (правильные пути) -->
-  <link rel="stylesheet" href="./styles/global.css">
-  <link rel="stylesheet" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Книжная полка — личный каталог книг">
+    <title>Книжная полка — каталог книг</title>
+    
+    <!-- ПОДКЛЮЧЕНИЕ ШРИФТОВ (ТОЛЬКО RALEWAY) -->
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    
+    <!-- ПОДКЛЮЧЕНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ -->
+    <link rel="stylesheet" href="./styles/global.css">
+    
+    <!-- ПОДКЛЮЧЕНИЕ ОСНОВНЫХ СТИЛЕЙ -->
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-<div class="wrapper">
-  <div class="main-container">
-
-    <!-- ===== ВЕРХНЯЯ ЧАСТЬ: НАВИГАЦИЯ, ЛОГО, КОНТАКТЫ ===== -->
-    <div class="header-section">
-      <div class="contacts-left">
-        <div class="contact-email">info@knizhpolka.ru</div>
-        <div class="contact-phone">+7 (495) 123-45-67</div>
-        <div class="contact-address">Москва, ул. Арбат, 12</div>
-      </div>
-      
-      <div class="nav-menu">
-        <div class="nav-item" data-page="catalog">КАТАЛОГ</div>
-        <svg class="nav-dot" width="5" height="5"><circle cx="2.5" cy="2.5" r="2.5" fill="#7c5e3a"/></svg>
-        <div class="nav-item" data-page="favorites">ИЗБРАННОЕ</div>
-        <svg class="nav-dot" width="5" height="5"><circle cx="2.5" cy="2.5" r="2.5" fill="#7c5e3a"/></svg>
-        <div class="nav-item" data-page="about">О ПРОЕКТЕ</div>
-      </div>
-
-      <div class="logo-circle">
-        <span class="logo-icon">📘</span>
-      </div>
-      
-      <div class="contacts-right">
-        <div class="contact-label">книжный клуб</div>
-        <div class="contact-email-right">club@bookclub.ru</div>
-        <div class="contact-hours">ежедневно 11:00–20:00</div>
-      </div>
-      
-      <div class="favorites-counter">
-        ❤️ <span id="favoriteCountHeader">0</span>
-      </div>
-    </div>
-
-    <!-- ===== ГЕРО-БЛОК ===== -->
-    <div class="hero-block">
-      <div class="hero-overlay"></div>
-      <div class="hero-subtitle">«КНИЖНАЯ ПОЛКА»</div>
-      <div class="hero-title">КНИЖНАЯ</div>
-      <div class="hero-title-second">ПОЛКА</div>
-      <div class="hero-description">Аукцион редких книг, в которые когда-то не верил никто, кроме их авторов.</div>
-      <div class="hero-btn" id="heroBtn">ПЕРЕЙТИ К КАТАЛОГУ</div>
-    </div>
-
-    <!-- ===== БЛОК ФИЛЬТРОВ И ПОИСКА ===== -->
-    <div class="filters-section">
-      <div class="filters-row">
-        <input type="text" id="searchBookInput" class="search-input" placeholder="Поиск по названию или автору...">
-        <select id="sortSelect" class="sort-select">
-          <option value="title">По названию</option>
-          <option value="author">По автору</option>
-          <option value="year">По году издания</option>
-          <option value="rating">По рейтингу</option>
-        </select>
-      </div>
-      <div class="genres-row" id="genresContainer">
-        <button class="genre-filter active" data-genre="all">ВСЕ</button>
-        <button class="genre-filter" data-genre="Классика">КЛАССИКА</button>
-        <button class="genre-filter" data-genre="Антиутопия">АНТИТОПИЯ</button>
-        <button class="genre-filter" data-genre="Фэнтези">ФЭНТЕЗИ</button>
-        <button class="genre-filter" data-genre="Фантастика">ФАНТАСТИКА</button>
-        <button class="genre-filter" data-genre="Детектив">ДЕТЕКТИВ</button>
-        <button class="genre-filter" data-genre="Философия">ФИЛОСОФИЯ</button>
-      </div>
-    </div>
-
-    <!-- ===== ОСНОВНАЯ СЕТКА КНИГ ===== -->
-    <div id="catalogGrid" class="catalog-grid"></div>
-
-    <!-- ===== СТРАНИЦА ИЗБРАННОГО ===== -->
-    <div id="favoritesPage" class="page-hidden">
-      <div class="catalog-header">
-        <h2 class="catalog-title">Избранное</h2>
-        <p class="catalog-subtitle">Ваши любимые книги</p>
-      </div>
-      <div id="favoritesGrid" class="catalog-grid"></div>
-    </div>
-
-    <!-- ===== БЛОК "О ПРОЕКТЕ" ===== -->
-    <div class="about-section" id="aboutSection">
-      <div class="about-container">
-        <div class="about-icon">
-          <span class="about-icon-text">📖</span>
+    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                <span class="hero__title-line">КНИЖНАЯ</span>
+                <span class="hero__title-line">ПОЛКА</span>
+            </h1>
+            <p class="hero__subtitle">ЧИТАЙ</p>
+            <p class="hero__description">Твой личный каталог книг — открывай новые миры</p>
+            <button class="hero__btn" id="goToCatalogBtn" aria-label="Перейти к каталогу книг">ПЕРЕЙТИ К КАТАЛОГУ</button>
         </div>
-        <div class="about-content">
-          <div class="about-title">О КНИЖНОЙ ПОЛКЕ</div>
-          <div class="about-text">Здесь собраны книги, которые когда-то были отвергнуты издательствами, разорваны критиками или считались «слишком странными». Но время расставило всё по местам. Теперь это всемирно признанные шедевры: от «Мастера и Маргариты» до «1984», от «Дюны» до «Маленького принца».</div>
-          <div class="about-text">Каждый лот — уникальная история о том, как важно верить в своё дело. Просмотрите каталог, добавьте понравившиеся книги в избранное и поставьте свою оценку.</div>
+        <div class="hero__bookshelf"></div>
+    </section>
+
+    <header class="header" id="header">
+        <div class="header__logo">
+            <a href="/" class="header__logo-link" aria-label="На главную">
+                <span class="header__logo-icon">📚</span>
+                <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
+            </a>
         </div>
-      </div>
+        <nav class="header__nav">
+            <button class="nav__link active" data-page="catalog">КАТАЛОГ</button>
+            <button class="nav__link" data-page="favorites">ИЗБРАННОЕ</button>
+        </nav>
+        <div class="header__favorites">
+            <span>❤️</span>
+            <span id="favoriteCount">0</span>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="main-content">
+        <section id="catalogPage" class="page active">
+            <div class="catalog-header">
+                <h2 class="catalog__title">Каталог книг</h2>
+                <p class="catalog__count"><span id="booksCount">0</span> книг в коллекции</p>
+            </div>
+
+            <div class="filters">
+                <div class="filters__search">
+                    <input type="text" id="searchInput" placeholder="Поиск по названию или автору..." aria-label="Поиск книг">
+                </div>
+                <div class="filters__categories">
+                    <button class="filter-btn active" data-genre="all">ВСЕ</button>
+                    <button class="filter-btn" data-genre="Классика">КЛАССИКА</button>
+                    <button class="filter-btn" data-genre="Антиутопия">АНТИТОПИЯ</button>
+                    <button class="filter-btn" data-genre="Фэнтези">ФЭНТЕЗИ</button>
+                    <button class="filter-btn" data-genre="Фантастика">ФАНТАСТИКА</button>
+                    <button class="filter-btn" data-genre="Детектив">ДЕТЕКТИВ</button>
+                    <button class="filter-btn" data-genre="Философия">ФИЛОСОФИЯ</button>
+                </div>
+                <div class="filters__sort">
+                    <select id="sortSelect" aria-label="Сортировка книг">
+                        <option value="title">По названию</option>
+                        <option value="author">По автору</option>
+                        <option value="year">По году</option>
+                        <option value="rating">По рейтингу</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="catalog-grid" id="catalogGrid"></div>
+        </section>
+
+        <section id="favoritesPage" class="page">
+            <div class="catalog-header">
+                <h2 class="catalog__title">Избранное</h2>
+                <p class="catalog__count">Ваши любимые книги</p>
+            </div>
+            <div class="catalog-grid" id="favoritesGrid"></div>
+        </section>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__logo">
+                <span class="footer__logo-icon">📚</span>
+                <span>КНИЖНАЯ ПОЛКА</span>
+            </div>
+            <p class="footer__copy">© 2024 Книжная полка. Все права защищены.</p>
+            <address class="footer__contacts">
+                <a href="tel:+74951234567" class="footer__phone">+7 (495) 123-45-67</a>
+                <a href="mailto:club@bookclub.ru" class="footer__email">club@bookclub.ru</a>
+            </address>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Подробная информация о книге">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Закрыть">✕</button>
+            <div id="modalBody"></div>
+        </div>
     </div>
 
-    <!-- ФУТЕР -->
-    <div class="footer">
-      <div>
-        <div class="footer-phone">+7 (495) 123-45-67</div>
-        <div>info@knizhpolka.ru</div>
-        <div>Москва, ул. Арбат, д.12</div>
-      </div>
-      <div class="footer-nav">
-        <div class="footer-nav-item" data-page="catalog">КАТАЛОГ</div>
-        <div class="footer-nav-item" data-page="favorites">ИЗБРАННОЕ</div>
-        <div class="footer-nav-item" data-page="about">О ПРОЕКТЕ</div>
-      </div>
-      <div>
-        <svg width="46" height="46" viewBox="0 0 46 46">
-          <circle cx="23" cy="23" r="20" fill="#d8be96" stroke="#8e6a3b" stroke-width="1.2"/>
-          <text x="23" y="29" font-size="14" text-anchor="middle" fill="#382e22">КП</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- МОДАЛЬНОЕ ОКНО -->
-<div id="bookModal" class="modal">
-  <div class="modal-content">
-    <button id="closeModalBtn" class="modal-close">✕</button>
-    <div id="modalContent"></div>
-  </div>
-</div>
-
-<script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
