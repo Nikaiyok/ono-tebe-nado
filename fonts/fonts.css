@@ -1,6 +1,26 @@
-/* Подключение шрифта Raleway */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+@font-face {
+    font-family: 'Raleway';
+    src: url('Raleway-Regular.woff2') format('woff2'),
+         url('Raleway-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 
-body {
-    font-family: 'Raleway', sans-serif;
+@font-face {
+    font-family: 'Raleway';
+    src: url('Raleway-Bold.woff2') format('woff2'),
+         url('Raleway-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('Raleway-Bold.woff2') format('woff2'),
+         url('Raleway-Bold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }

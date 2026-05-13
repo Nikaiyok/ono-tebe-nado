@@ -1,267 +1,349 @@
-// БИБЛИОТЕКА КНИГ (20+ КНИГ)
-const booksData = [
-    { id: 1, title: "Преступление и наказание", author: "Фёдор Достоевский", year: 1866, genre: "Классика", rating: 4.8, ratingCount: 1240, description: "Роман о моральных терзаниях бедного студента Раскольникова, решившего убить старуху-процентщицу.", favorite: false },
-    { id: 2, title: "1984", author: "Джордж Оруэлл", year: 1949, genre: "Антиутопия", rating: 4.9, ratingCount: 2150, description: "Тоталитарный режим, Большой Брат следит за каждым.", favorite: false },
-    { id: 3, title: "Властелин Колец", author: "Дж. Р. Р. Толкин", year: 1954, genre: "Фэнтези", rating: 4.9, ratingCount: 3200, description: "Эпическое путешествие хоббита Фродо по уничтожению Кольца Всевластья.", favorite: false },
-    { id: 4, title: "Гарри Поттер и философский камень", author: "Дж.К. Роулинг", year: 1997, genre: "Фэнтези", rating: 4.7, ratingCount: 4100, description: "Мальчик, который выжил, узнаёт о мире магии.", favorite: false },
-    { id: 5, title: "451 градус по Фаренгейту", author: "Рэй Брэдбери", year: 1953, genre: "Антиутопия", rating: 4.6, ratingCount: 980, description: "Мир, где книги запрещены и сжигаются пожарными.", favorite: false },
-    { id: 6, title: "Гордость и предубеждение", author: "Джейн Остин", year: 1813, genre: "Классика", rating: 4.8, ratingCount: 1450, description: "Романтическая история о любви и предрассудках.", favorite: false },
-    { id: 7, title: "Автостопом по галактике", author: "Дуглас Адамс", year: 1979, genre: "Фантастика", rating: 4.5, ratingCount: 870, description: "Невероятные приключения Артура Дента.", favorite: false },
-    { id: 8, title: "Дюна", author: "Фрэнк Герберт", year: 1965, genre: "Фантастика", rating: 4.9, ratingCount: 2100, description: "Политическая борьба за пустынную планету Арракис.", favorite: false },
-    { id: 9, title: "Три товарища", author: "Эрих Мария Ремарк", year: 1936, genre: "Классика", rating: 4.7, ratingCount: 1100, description: "История дружбы и любви в послевоенной Германии.", favorite: false },
-    { id: 10, title: "Мастер и Маргарита", author: "Михаил Булгаков", year: 1967, genre: "Классика", rating: 4.9, ratingCount: 1850, description: "Мистический роман о визите сатаны в Москву.", favorite: false },
-    { id: 11, title: "О дивный новый мир", author: "Олдос Хаксли", year: 1932, genre: "Антиутопия", rating: 4.7, ratingCount: 1340, description: "Общество потребления и генная инженерия.", favorite: false },
-    { id: 12, title: "Имя розы", author: "Умберто Эко", year: 1980, genre: "Детектив", rating: 4.6, ratingCount: 720, description: "Средневековый детектив в монастыре.", favorite: false },
-    { id: 13, title: "Алхимик", author: "Пауло Коэльо", year: 1988, genre: "Философия", rating: 4.4, ratingCount: 2500, description: "Притча о поиске своего пути.", favorite: false },
-    { id: 14, title: "Идиот", author: "Фёдор Достоевский", year: 1869, genre: "Классика", rating: 4.7, ratingCount: 890, description: "Трагическая история князя Мышкина.", favorite: false },
-    { id: 15, title: "Тень ветра", author: "Карлос Руис Сафон", year: 2001, genre: "Детектив", rating: 4.8, ratingCount: 940, description: "Тайна забытой книги в Барселоне.", favorite: false },
-    { id: 16, title: "Ночной цирк", author: "Эрин Моргенштерн", year: 2011, genre: "Фэнтези", rating: 4.5, ratingCount: 610, description: "Магическое состязание в невероятном цирке.", favorite: false },
-    { id: 17, title: "Марсианин", author: "Энди Вейер", year: 2011, genre: "Фантастика", rating: 4.7, ratingCount: 1580, description: "Выживание астронавта на Марсе.", favorite: false },
-    { id: 18, title: "Сто лет одиночества", author: "Габриэль Гарсиа Маркес", year: 1967, genre: "Классика", rating: 4.9, ratingCount: 1730, description: "Магический реализм и семья Буэндиа.", favorite: false },
-    { id: 19, title: "Код да Винчи", author: "Дэн Браун", year: 2003, genre: "Детектив", rating: 4.3, ratingCount: 2100, description: "Триллер о тайнах христианства.", favorite: false },
-    { id: 20, title: "Над пропастью во ржи", author: "Дж.Д. Сэлинджер", year: 1951, genre: "Классика", rating: 4.5, ratingCount: 980, description: "История бунтарского подростка Холдена.", favorite: false }
+// БАЗА ДАННЫХ КНИГ
+const booksDatabase = [
+    { id: 1, title: "1984", author: "Джордж Оруэлл", year: 1949, genre: "Антиутопия", description: "Тоталитарный режим, где Большой брат следит за каждым.", fullPlot: "Уинстон Смит живёт в Океании, пытаясь сохранить человечность. Он влюбляется в Джулию и пытается бороться с системой.", rating: 4.8, ratingsCount: 1250, userRatings: [] },
+    { id: 2, title: "Мастер и Маргарита", author: "Михаил Булгаков", year: 1967, genre: "Классика", description: "Сатана со свитой в Москве 1930-х.", fullPlot: "Воланд со свитой приезжает в Москву и устраивает череду мистических событий. Мастер и Маргарита обретают покой.", rating: 4.9, ratingsCount: 1850, userRatings: [] },
+    { id: 3, title: "Гарри Поттер и философский камень", author: "Дж.К. Роулинг", year: 1997, genre: "Фэнтези", description: "Мальчик-волшебник поступает в Хогвартс.", fullPlot: "Гарри Поттер живёт у жестоких родственников. В свой день рождения он узнаёт, что он волшебник и поступает в Хогвартс.", rating: 4.9, ratingsCount: 2300, userRatings: [] },
+    { id: 4, title: "Дюна", author: "Фрэнк Герберт", year: 1965, genre: "Фантастика", description: "Битва за пустынную планету Арракис.", fullPlot: "Молодой Пол Атрейдес оказывается в центре борьбы за контроль над планетой Арракис, единственным источником ценной пряности.", rating: 4.7, ratingsCount: 1890, userRatings: [] },
+    { id: 5, title: "Маленький принц", author: "Антуан де Сент-Экзюпери", year: 1943, genre: "Философия", description: "Притча о любви и дружбе.", fullPlot: "Лётчик терпит крушение в пустыне и встречает Маленького принца, который учит его смотреть сердцем.", rating: 4.8, ratingsCount: 2100, userRatings: [] },
+    { id: 6, title: "Преступление и наказание", author: "Фёдор Достоевский", year: 1866, genre: "Классика", description: "Идейное преступление и муки совести.", fullPlot: "Бедный студент Раскольников разрабатывает теорию о разделении людей и совершает убийство старухи-процентщицы.", rating: 4.8, ratingsCount: 1560, userRatings: [] },
+    { id: 7, title: "451° по Фаренгейту", author: "Рэй Брэдбери", year: 1953, genre: "Антиутопия", description: "Пожарные сжигают книги.", fullPlot: "В будущем книги запрещены, а пожарные их сжигают. Пожарный Монтэг встречает девушку, которая заставляет его усомниться.", rating: 4.7, ratingsCount: 980, userRatings: [] },
+    { id: 8, title: "Убить пересмешника", author: "Харпер Ли", year: 1960, genre: "Классика", description: "Адвокат защищает чернокожего на Юге США.", fullPlot: "Глазами маленькой девочки мы видим расовую несправедливость и борьбу за справедливость её отца-адвоката.", rating: 4.8, ratingsCount: 890, userRatings: [] },
+    { id: 9, title: "Сияние", author: "Стивен Кинг", year: 1977, genre: "Детектив", description: "Писатель в отеле-убийце.", fullPlot: "Джек Торренс становится смотрителем отеля 'Оверлук' на зиму. Сверхъестественные силы отеля сводят его с ума.", rating: 4.6, ratingsCount: 730, userRatings: [] }
 ];
 
-let books = [...booksData];
-let favorites = JSON.parse(localStorage.getItem('bookFavorites')) || [];
-let currentGenre = 'all';
-let currentSearch = '';
-let currentSort = 'title';
+let books = JSON.parse(JSON.stringify(booksDatabase));
+let favorites = [];
+let currentPage = "catalog";
+let currentGenre = "all";
+let currentSearch = "";
+let currentSort = "title";
 
-books.forEach(book => { book.favorite = favorites.includes(book.id); });
+// ===== ЗАГРУЗКА/СОХРАНЕНИЕ =====
+function loadFavorites() {
+    const saved = localStorage.getItem("bookClubFavorites");
+    if (saved) favorites = JSON.parse(saved);
+    updateFavoriteCount();
+}
 
 function saveFavorites() {
-    favorites = books.filter(b => b.favorite).map(b => b.id);
-    localStorage.setItem('bookFavorites', JSON.stringify(favorites));
-    document.getElementById('favoriteCount').innerText = favorites.length;
+    localStorage.setItem("bookClubFavorites", JSON.stringify(favorites));
+    updateFavoriteCount();
 }
 
-function renderCatalog() {
-    let filtered = books.filter(book => {
-        const matchGenre = currentGenre === 'all' || book.genre === currentGenre;
-        const matchSearch = book.title.toLowerCase().includes(currentSearch.toLowerCase()) || book.author.toLowerCase().includes(currentSearch.toLowerCase());
-        return matchGenre && matchSearch;
-    });
-    
-    if (currentSort === 'title') filtered.sort((a,b) => a.title.localeCompare(b.title));
-    else if (currentSort === 'author') filtered.sort((a,b) => a.author.localeCompare(b.author));
-    else if (currentSort === 'year') filtered.sort((a,b) => a.year - b.year);
-    else if (currentSort === 'rating') filtered.sort((a,b) => b.rating - a.rating);
-    
-    document.getElementById('booksCount').innerText = filtered.length;
-    const grid = document.getElementById('catalogGrid');
-    if (filtered.length === 0) {
-        grid.innerHTML = `<div class="empty-state"><span>📚</span><p>Ничего не найдено :(</p></div>`;
-        return;
+function loadRatings() {
+    const saved = localStorage.getItem("bookClubRatings");
+    if (saved) {
+        const ratings = JSON.parse(saved);
+        books.forEach(book => {
+            if (ratings[book.id]) {
+                book.userRatings = ratings[book.id];
+                if (book.userRatings.length > 0) {
+                    const sum = book.userRatings.reduce((a, b) => a + b, 0);
+                    book.rating = parseFloat((sum / book.userRatings.length).toFixed(1));
+                    book.ratingsCount = book.userRatings.length;
+                }
+            }
+        });
     }
-    grid.innerHTML = filtered.map(book => `
-        <div class="book-card" data-id="${book.id}">
-            <div class="book-card__content">
-                <div class="book-card__title">${book.title}</div>
-                <div class="book-card__author">${book.author}</div>
-                <div class="book-card__meta">${book.year} г. • <span class="book-card__genre">${book.genre}</span></div>
-                <div class="book-card__rating">
-                    <span class="stars">${'★'.repeat(Math.floor(book.rating))}${book.rating % 1 >= 0.5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(book.rating))}</span>
-                    <span class="rating-value">${book.rating}</span>
-                    <span class="rating-count">(${book.ratingCount})</span>
-                </div>
-                <div class="book-card__description">${book.description.substring(0, 120)}${book.description.length > 120 ? '…' : ''}</div>
-                <div class="book-card__buttons">
-                    <button class="fav-btn ${book.favorite ? 'active' : ''}" data-id="${book.id}">${book.favorite ? '❤️ В избранном' : '🤍 В избранное'}</button>
-                    <button class="rate-btn" data-id="${book.id}">⭐ Оценить</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
-    
-    attachCardEvents();
 }
 
-function attachCardEvents() {
-    document.querySelectorAll('.fav-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const id = parseInt(btn.dataset.id);
-            const book = books.find(b => b.id === id);
-            if (book) {
-                book.favorite = !book.favorite;
-                saveFavorites();
-                renderCatalog();
-                renderFavorites();
-            }
-        });
+function saveRatings() {
+    const ratings = {};
+    books.forEach(book => {
+        if (book.userRatings?.length) ratings[book.id] = book.userRatings;
     });
-    
-    document.querySelectorAll('.rate-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const id = parseInt(btn.dataset.id);
-            openRatingModal(id);
-        });
-    });
-    
-    document.querySelectorAll('.book-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('fav-btn') && !e.target.classList.contains('rate-btn')) {
-                const id = parseInt(card.dataset.id);
-                openBookModal(id);
-            }
-        });
-    });
+    localStorage.setItem("bookClubRatings", JSON.stringify(ratings));
 }
 
-function renderFavorites() {
-    const favBooks = books.filter(b => b.favorite);
-    const grid = document.getElementById('favoritesGrid');
-    if (favBooks.length === 0) {
-        grid.innerHTML = `<div class="empty-state"><span>❤️</span><p>В избранном пока ничего нет</p></div>`;
-        return;
-    }
-    grid.innerHTML = favBooks.map(book => `
-        <div class="book-card" data-id="${book.id}">
-            <div class="book-card__content">
-                <div class="book-card__title">${book.title}</div>
-                <div class="book-card__author">${book.author}</div>
-                <div class="book-card__meta">${book.year} г. • ${book.genre}</div>
-                <div class="book-card__rating"><span class="stars">${'★'.repeat(Math.floor(book.rating))}${book.rating % 1 >= 0.5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(book.rating))}</span> ${book.rating}</div>
-                <div class="book-card__description">${book.description.substring(0, 100)}…</div>
-                <div class="book-card__buttons">
-                    <button class="fav-btn active" data-id="${book.id}">❤️ В избранном</button>
-                    <button class="rate-btn" data-id="${book.id}">⭐ Оценить</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
-    
-    attachFavEvents();
+function updateFavoriteCount() {
+    const countEl = document.getElementById("favoriteCountHeader");
+    if (countEl) countEl.textContent = favorites.length;
 }
 
-function attachFavEvents() {
-    document.querySelectorAll('#favoritesGrid .fav-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const id = parseInt(btn.dataset.id);
-            const book = books.find(b => b.id === id);
-            if (book) { book.favorite = false; saveFavorites(); renderCatalog(); renderFavorites(); }
-        });
-    });
-    document.querySelectorAll('#favoritesGrid .rate-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const id = parseInt(btn.dataset.id);
-            openRatingModal(id);
-        });
-    });
-    document.querySelectorAll('#favoritesGrid .book-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('fav-btn') && !e.target.classList.contains('rate-btn')) {
-                const id = parseInt(card.dataset.id);
-                openBookModal(id);
-            }
-        });
-    });
+function isFavorite(bookId) {
+    return favorites.includes(bookId);
 }
 
-function openBookModal(id) {
-    const book = books.find(b => b.id === id);
-    if (!book) return;
-    const modalBody = document.getElementById('modalBody');
-    modalBody.innerHTML = `
-        <div class="modal-body">
-            <h2>${book.title}</h2>
-            <p><strong>Автор:</strong> ${book.author}</p>
-            <p><strong>Год:</strong> ${book.year}</p>
-            <p><strong>Жанр:</strong> ${book.genre}</p>
-            <div class="modal-rating"><strong>Рейтинг:</strong> ${book.rating} ★ (${book.ratingCount} оценок)</div>
-            <p><strong>Описание:</strong> ${book.description}</p>
-            <p><small>Лот аукциона: «Книжная полка» — тот самый экземпляр, который никто не вернёт.</small></p>
-        </div>
-    `;
-    document.getElementById('modal').style.display = 'flex';
-}
-
-function openRatingModal(id) {
-    const book = books.find(b => b.id === id);
-    if (!book) return;
-    const modalBody = document.getElementById('modalBody');
-    modalBody.innerHTML = `
-        <div class="modal-body">
-            <h3>Оцените книгу</h3>
-            <p><strong>${book.title}</strong> — ${book.author}</p>
-            <div class="modal-rating">
-                <div>Ваша оценка:</div>
-                <div id="starRatingModal">
-                    ${[1,2,3,4,5].map(star => `<span class="rate-option" data-rate="${star}">${star}★</span>`).join('')}
-                </div>
-            </div>
-            <p>Текущий рейтинг: ${book.rating} (${book.ratingCount} голосов)</p>
-            <button id="closeRatingBtn" style="background:#8B5E3C; color:white; border:none; padding:8px 20px; border-radius:40px; cursor:pointer;">Закрыть</button>
-        </div>
-    `;
-    document.getElementById('modal').style.display = 'flex';
-    document.querySelectorAll('.rate-option').forEach(el => {
-        el.addEventListener('click', (e) => {
-            const newRatingVal = parseInt(e.target.dataset.rate);
-            const newTotalRating = (book.rating * book.ratingCount + newRatingVal) / (book.ratingCount + 1);
-            book.rating = parseFloat(newTotalRating.toFixed(1));
-            book.ratingCount += 1;
-            saveFavorites();
-            renderCatalog();
-            renderFavorites();
-            document.getElementById('modal').style.display = 'none';
-            alert(`Спасибо за оценку! Новый рейтинг: ${book.rating} ★`);
-        });
-    });
-    document.getElementById('closeRatingBtn')?.addEventListener('click', () => { document.getElementById('modal').style.display = 'none'; });
-}
-
-// НАВИГАЦИЯ
-document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-        const page = link.dataset.page;
-        document.querySelectorAll('.nav__link').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById(page + 'Page').classList.add('active');
-        if (page === 'favorites') renderFavorites();
-        else renderCatalog();
-    });
-});
-
-document.getElementById('goToCatalogBtn').addEventListener('click', () => {
-    document.getElementById('header').classList.add('visible');
-    document.querySelector('.hero').style.display = 'none';
-    document.querySelector('.main-content').style.display = 'block';
-    document.querySelector('.footer').style.display = 'block';
-    renderCatalog();
-});
-
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentGenre = btn.dataset.genre;
-        renderCatalog();
-    });
-});
-
-document.getElementById('searchInput').addEventListener('input', (e) => {
-    currentSearch = e.target.value;
-    renderCatalog();
-});
-
-document.getElementById('sortSelect').addEventListener('change', (e) => {
-    currentSort = e.target.value;
-    renderCatalog();
-});
-
-document.querySelector('.modal-close').addEventListener('click', () => { document.getElementById('modal').style.display = 'none'; });
-window.addEventListener('click', (e) => { if (e.target === document.getElementById('modal')) document.getElementById('modal').style.display = 'none'; });
-
-window.addEventListener('load', () => {
+function toggleFavorite(bookId) {
+    const index = favorites.indexOf(bookId);
+    if (index === -1) favorites.push(bookId);
+    else favorites.splice(index, 1);
     saveFavorites();
-    renderCatalog();
-});
+    renderCurrentPage();
+}
 
-document.querySelector('.main-content').style.display = 'none';
-document.querySelector('.footer').style.display = 'none';
+function rateBook(bookId, rating) {
+    const book = books.find(b => b.id === bookId);
+    if (book) {
+        if (!book.userRatings) book.userRatings = [];
+        book.userRatings.push(rating);
+        const sum = book.userRatings.reduce((a, b) => a + b, 0);
+        book.rating = parseFloat((sum / book.userRatings.length).toFixed(1));
+        book.ratingsCount = book.userRatings.length;
+        saveRatings();
+        renderCurrentPage();
+    }
+}
+
+// ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+function renderStars(rating) {
+    let stars = "";
+    for (let i = 0; i < 5; i++) {
+        stars += i < Math.floor(rating) ? "★" : "☆";
+    }
+    return stars;
+}
+
+function escapeHtml(str) {
+    if (!str) return "";
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
+function getFilteredBooks() {
+    let filtered = [...books];
+    if (currentGenre !== "all") {
+        filtered = filtered.filter(b => b.genre === currentGenre);
+    }
+    if (currentSearch.trim()) {
+        const q = currentSearch.toLowerCase();
+        filtered = filtered.filter(b => 
+            b.title.toLowerCase().includes(q) || 
+            b.author.toLowerCase().includes(q)
+        );
+    }
+    if (currentSort === "title") filtered.sort((a, b) => a.title.localeCompare(b.title));
+    if (currentSort === "author") filtered.sort((a, b) => a.author.localeCompare(b.author));
+    if (currentSort === "year") filtered.sort((a, b) => b.year - a.year);
+    if (currentSort === "rating") filtered.sort((a, b) => b.rating - a.rating);
+    return filtered;
+}
+
+function getFavoritesBooks() {
+    return books.filter(b => favorites.includes(b.id));
+}
+
+// ===== ОТРИСОВКА =====
+function renderBooksGrid(containerId, booksArray) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    if (booksArray.length === 0) {
+        container.innerHTML = `<div class="empty-state"><span>📚</span><p>Книг не найдено</p></div>`;
+        return;
+    }
+    
+    container.innerHTML = booksArray.map(book => `
+        <div class="book-card" data-id="${book.id}">
+            <div>
+                <h3 class="book-card__title">${escapeHtml(book.title)}</h3>
+                <p class="book-card__author">${escapeHtml(book.author)}</p>
+                <div class="book-card__meta">
+                    <span>📅 ${book.year}</span>
+                    <span class="book-card__genre">🏷️ ${escapeHtml(book.genre)}</span>
+                </div>
+                <div class="book-card__rating">
+                    <span class="stars">${renderStars(book.rating)}</span>
+                    <span class="rating-value">${book.rating.toFixed(1)}</span>
+                    <span class="rating-count">(${book.ratingsCount})</span>
+                </div>
+                <p class="book-card__description">${escapeHtml(book.description)}</p>
+            </div>
+            <div class="book-card__buttons">
+                <button class="fav-btn ${isFavorite(book.id) ? 'active' : ''}" data-id="${book.id}">${isFavorite(book.id) ? '❤️ В избранном' : '🤍 В избранное'}</button>
+                <button class="rate-btn" data-id="${book.id}">⭐ Оценить</button>
+            </div>
+        </div>
+    `).join("");
+    
+    // Обработчики карточек
+    document.querySelectorAll(".book-card").forEach(card => {
+        const id = parseInt(card.dataset.id);
+        card.addEventListener("click", (e) => {
+            if (e.target.classList.contains("fav-btn") || e.target.classList.contains("rate-btn")) return;
+            openModal(id);
+        });
+    });
+    
+    document.querySelectorAll(".fav-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleFavorite(parseInt(btn.dataset.id));
+        });
+    });
+    
+    document.querySelectorAll(".rate-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openRatingModal(parseInt(btn.dataset.id));
+        });
+    });
+}
+
+function renderCurrentPage() {
+    if (currentPage === "catalog") {
+        document.getElementById("catalogGrid").style.display = "grid";
+        document.getElementById("favoritesPage").classList.add("page-hidden");
+        document.getElementById("favoritesPage").classList.remove("page-active");
+        document.getElementById("aboutSection").style.display = "flex";
+        
+        const filtered = getFilteredBooks();
+        renderBooksGrid("catalogGrid", filtered);
+    } else if (currentPage === "favorites") {
+        document.getElementById("catalogGrid").style.display = "none";
+        document.getElementById("favoritesPage").classList.remove("page-hidden");
+        document.getElementById("favoritesPage").classList.add("page-active");
+        document.getElementById("aboutSection").style.display = "flex";
+        
+        renderBooksGrid("favoritesGrid", getFavoritesBooks());
+    } else if (currentPage === "about") {
+        document.getElementById("catalogGrid").style.display = "none";
+        document.getElementById("favoritesPage").classList.add("page-hidden");
+        document.getElementById("aboutSection").style.display = "flex";
+        
+        document.getElementById("aboutSection").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+// ===== МОДАЛЬНЫЕ ОКНА =====
+function openModal(bookId) {
+    const book = books.find(b => b.id === bookId);
+    const modal = document.getElementById("bookModal");
+    const modalContent = document.getElementById("modalContent");
+    
+    modalContent.innerHTML = `
+        <h2 style="font-size:28px; margin-bottom:12px;">${escapeHtml(book.title)}</h2>
+        <p><strong>Автор:</strong> ${escapeHtml(book.author)}</p>
+        <p><strong>Год:</strong> ${book.year}</p>
+        <p><strong>Жанр:</strong> ${escapeHtml(book.genre)}</p>
+        <div style="background:#e9ddcd; padding:12px; border-radius:20px; margin:16px 0; text-align:center;">
+            <span style="font-weight:bold; margin-right:8px;">⭐ ${book.rating.toFixed(1)} (${book.ratingsCount})</span>
+            <span style="font-size:18px;">${renderStars(book.rating)}</span>
+        </div>
+        <p style="line-height:1.4; margin-bottom:20px;"><strong>📖 Сюжет:</strong> ${escapeHtml(book.fullPlot)}</p>
+        <button id="modalRateBtn" class="modal-rate-btn">⭐ Поставить оценку</button>
+    `;
+    
+    modal.style.display = "flex";
+    
+    document.getElementById("modalRateBtn")?.addEventListener("click", () => {
+        modal.style.display = "none";
+        openRatingModal(bookId);
+    });
+}
+
+function openRatingModal(bookId) {
+    const book = books.find(b => b.id === bookId);
+    const modal = document.getElementById("bookModal");
+    const modalContent = document.getElementById("modalContent");
+    
+    modalContent.innerHTML = `
+        <h2>Оцените книгу</h2>
+        <p><strong>${escapeHtml(book.title)}</strong> — ${escapeHtml(book.author)}</p>
+        <div class="rating-options">
+            ${[1, 2, 3, 4, 5].map(r => `<span class="rating-star" data-rating="${r}">${r}★</span>`).join("")}
+        </div>
+        <button id="closeRateBtn" style="background:#e9dbca; width:100%; padding:10px; border-radius:40px; cursor:pointer;">Закрыть</button>
+    `;
+    
+    modal.style.display = "flex";
+    
+    document.querySelectorAll(".rating-star").forEach(el => {
+        el.addEventListener("click", (e) => {
+            rateBook(bookId, parseInt(e.target.dataset.rating));
+            modal.style.display = "none";
+        });
+    });
+    
+    document.getElementById("closeRateBtn")?.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+}
+
+// ===== НАВИГАЦИЯ =====
+function setupNavigation() {
+    const navItems = document.querySelectorAll(".nav-item, .footer-nav-item");
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            const page = item.dataset.page;
+            if (!page) return;
+            currentPage = page;
+            
+            // Активный класс для навигации
+            document.querySelectorAll(".nav-item").forEach(nav => nav.classList.remove("active"));
+            if (item.classList.contains("nav-item")) item.classList.add("active");
+            
+            renderCurrentPage();
+        });
+    });
+}
+
+function setupFilters() {
+    document.querySelectorAll(".genre-filter").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".genre-filter").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentGenre = btn.dataset.genre;
+            renderCurrentPage();
+        });
+    });
+    
+    document.getElementById("searchBookInput")?.addEventListener("input", (e) => {
+        currentSearch = e.target.value;
+        renderCurrentPage();
+    });
+    
+    document.getElementById("sortSelect")?.addEventListener("change", (e) => {
+        currentSort = e.target.value;
+        renderCurrentPage();
+    });
+}
+
+function setupModal() {
+    const modal = document.getElementById("bookModal");
+    const closeBtn = document.getElementById("closeModalBtn");
+    
+    closeBtn?.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    });
+}
+
+function setupHero() {
+    const heroBtn = document.getElementById("heroBtn");
+    heroBtn?.addEventListener("click", () => {
+        currentPage = "catalog";
+        renderCurrentPage();
+        document.querySelector(".catalog-grid").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+}
+
+function closeModalOnEsc() {
+    document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("bookModal");
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            modal.style.display = "none";
+        }
+    });
+}
+
+// ===== ИНИЦИАЛИЗАЦИЯ =====
+function init() {
+    loadFavorites();
+    loadRatings();
+    setupNavigation();
+    setupFilters();
+    setupModal();
+    setupHero();
+    closeModalOnEsc();
+    renderCurrentPage();
+}
+
+init();
