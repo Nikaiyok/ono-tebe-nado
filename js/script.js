@@ -1,14 +1,14 @@
 // БАЗА ДАННЫХ КНИГ
 const booksDatabase = [
-    { id: 1, title: "1984", author: "Джордж Оруэлл", year: 1949, genre: "Антиутопия", description: "Тоталитарное общество, где Большой Брат следит за каждым шагом граждан.", fullPlot: "Уинстон Смит живёт в супергосударстве Океания, где правительство контролирует всё — мысли, действия и историю.", rating: 4.8, ratingsCount: 1250, userRatings: [] },
-    { id: 2, title: "Мастер и Маргарита", author: "Михаил Булгаков", year: 1967, genre: "Классика", description: "Мастер написал роман о Понтии Пилате. Сатана со свитой посещает Москву.", fullPlot: "Воланд со свитой приезжает в Москву и устраивает череду мистических событий.", rating: 4.9, ratingsCount: 1850, userRatings: [] },
-    { id: 3, title: "Гарри Поттер и философский камень", author: "Дж.К. Роулинг", year: 1997, genre: "Фэнтези", description: "Мальчик-волшебник открывает для себя мир магии.", fullPlot: "Гарри Поттер живёт у жестоких родственников. En su cumpleaños descubre que es un mago.", rating: 4.9, ratingsCount: 2300, userRatings: [] },
-    { id: 4, title: "Дюна", author: "Фрэнк Герберт", year: 1965, genre: "Фантастика", description: "Эпическая сага о пустынной планете, пряностях и борьбе за власть.", fullPlot: "Молодой Пол Атрейдес оказывается в центре борьбы за контроль над планетой Арракис.", rating: 4.7, ratingsCount: 1890, userRatings: [] },
-    { id: 5, title: "Маленький принц", author: "Антуан де Сент-Экзюпери", year: 1943, genre: "Философия", description: "Маленький принц путешествует по планетам y descubre el secreto de la verdad más importante.", fullPlot: "El aviador se estrella en el desierto y se encuentra con el Principito.", rating: 4.8, ratingsCount: 2100, userRatings: [] },
-    { id: 6, title: "Преступление и наказание", author: "Фёдор Достоевский", year: 1866, genre: "Классика", description: "Раскольников убивает старуху-процентщицу, проверяя свою теорию.", fullPlot: "El pobre estudiante Raskolnikov desarrolla una teoría sobre la división de las personas.", rating: 4.8, ratingsCount: 1560, userRatings: [] },
-    { id: 7, title: "451 градус по Фаренгейту", author: "Рэй Брэдбери", year: 1953, genre: "Антиутопия", description: "Пожарный сжигает книги, но одна встреча меняет его жизнь.", fullPlot: "En el futuro los libros están prohibidos y los bomberos los queman.", rating: 4.7, ratingsCount: 980, userRatings: [] },
-    { id: 8, title: "Убить пересмешника", author: "Харпер Ли", year: 1960, genre: "Классика", description: "Адвокат защищает чернокожего мужчину в американском юге.", fullPlot: "A través de los ojos de una niña vemos la injusticia racial.", rating: 4.8, ratingsCount: 890, userRatings: [] },
-    { id: 9, title: "Сияние", author: "Стивен Кинг", year: 1977, genre: "Детектив", description: "Писатель с семьёй становится смотрителем отеля.", fullPlot: "Jack Torrance se convierte en el cuidador del hotel 'Overlook'.", rating: 4.6, ratingsCount: 730, userRatings: [] }
+    { id: 1, title: "1984", author: "Джордж Оруэлл", year: 1949, genre: "Антиутопия", description: "Тоталитарное общество, где Большой Брат следит за каждым шагом граждан.", fullPlot: "Уинстон Смит живёт в супергосударстве Океания, где правительство контролирует всё — мысли, действия и историю. Он влюбляется в Джулию и пытается бороться с системой.", rating: 4.8, ratingsCount: 1250, userRatings: [] },
+    { id: 2, title: "Мастер и Маргарита", author: "Михаил Булгаков", year: 1967, genre: "Классика", description: "Мастер написал роман о Понтии Пилате. Сатана со свитой посещает Москву.", fullPlot: "Воланд со свитой приезжает в Москву и устраивает череду мистических событий. Мастер и его возлюбленная Маргарита обретают покой.", rating: 4.9, ratingsCount: 1850, userRatings: [] },
+    { id: 3, title: "Гарри Поттер и философский камень", author: "Дж.К. Роулинг", year: 1997, genre: "Фэнтези", description: "Мальчик-волшебник открывает для себя мир магии.", fullPlot: "Гарри Поттер живёт у жестоких родственников. В свой день рождения он узнаёт, что он волшебник и поступает в Хогвартс.", rating: 4.9, ratingsCount: 2300, userRatings: [] },
+    { id: 4, title: "Дюна", author: "Фрэнк Герберт", year: 1965, genre: "Фантастика", description: "Эпическая сага о пустынной планете, пряностях и борьбе за власть.", fullPlot: "Молодой Пол Атрейдес оказывается в центре борьбы за контроль над планетой Арракис, единственным источником ценной пряности.", rating: 4.7, ratingsCount: 1890, userRatings: [] },
+    { id: 5, title: "Маленький принц", author: "Антуан де Сент-Экзюпери", year: 1943, genre: "Философия", description: "Маленький принц путешествует по планетам и открывает главную тайну.", fullPlot: "Лётчик терпит крушение в пустыне и встречает Маленького принца, который учит его смотреть сердцем.", rating: 4.8, ratingsCount: 2100, userRatings: [] },
+    { id: 6, title: "Преступление и наказание", author: "Фёдор Достоевский", year: 1866, genre: "Классика", description: "Раскольников убивает старуху-процентщицу, проверяя свою теорию.", fullPlot: "Бедный студент Раскольников разрабатывает теорию о разделении людей и совершает убийство старухи-процентщицы.", rating: 4.8, ratingsCount: 1560, userRatings: [] },
+    { id: 7, title: "451 градус по Фаренгейту", author: "Рэй Брэдбери", year: 1953, genre: "Антиутопия", description: "Пожарный сжигает книги, но одна встреча меняет его жизнь.", fullPlot: "В будущем книги запрещены, а пожарные их сжигают. Пожарный Монтэг встречает девушку, которая заставляет его усомниться в своём деле.", rating: 4.7, ratingsCount: 980, userRatings: [] },
+    { id: 8, title: "Убить пересмешника", author: "Харпер Ли", year: 1960, genre: "Классика", description: "Адвокат защищает чернокожего мужчину в американском юге.", fullPlot: "Глазами маленькой девочки мы видим расовую несправедливость и борьбу за справедливость её отца-адвоката.", rating: 4.8, ratingsCount: 890, userRatings: [] },
+    { id: 9, title: "Сияние", author: "Стивен Кинг", year: 1977, genre: "Детектив", description: "Писатель с семьёй становится смотрителем отеля.", fullPlot: "Джек Торренс становится смотрителем отеля 'Оверлук' на зиму. Сверхъестественные силы отеля сводят его с ума.", rating: 4.6, ratingsCount: 730, userRatings: [] }
 ];
 
 let books = JSON.parse(JSON.stringify(booksDatabase));
@@ -123,24 +123,21 @@ function renderBooksGrid(containerId, booksArray) {
     
     container.innerHTML = booksArray.map(book => `
         <div class="book-card" data-id="${book.id}">
-            <div class="book-card__image">
-                <img src="./images/${book.id}.jpg" alt="${book.title}" loading="lazy" onerror="this.src='./images/placeholder.jpg'; this.onerror=null;">
-            </div>
             <div class="book-card__content">
-                <h3 class="book-card__title">${book.title}</h3>
-                <p class="book-card__author">${book.author}</p>
+                <h3 class="book-card__title">${escapeHtml(book.title)}</h3>
+                <p class="book-card__author">${escapeHtml(book.author)}</p>
                 <div class="book-card__meta"><span>📅 ${book.year}</span></div>
-                <span class="book-card__genre">${book.genre}</span>
+                <span class="book-card__genre">${escapeHtml(book.genre)}</span>
                 <div class="book-card__rating">
                     <span class="stars">${renderStars(book.rating)}</span>
                     <span class="rating-value">${book.rating.toFixed(1)}</span>
                     <span class="rating-count">(${book.ratingsCount})</span>
                 </div>
-                <p class="book-card__description">${book.description}</p>
-            </div>
-            <div class="book-card__buttons">
-                <button class="fav-btn ${isFavorite(book.id) ? 'active' : ''}" data-id="${book.id}" aria-label="${isFavorite(book.id) ? 'Удалить из избранного' : 'Добавить в избранное'}">${isFavorite(book.id) ? '❤️ В избранном' : '🤍 В избранное'}</button>
-                <button class="rate-btn" data-id="${book.id}" aria-label="Оценить книгу">⭐ Оценить</button>
+                <p class="book-card__description">${escapeHtml(book.description)}</p>
+                <div class="book-card__buttons">
+                    <button class="fav-btn ${isFavorite(book.id) ? 'active' : ''}" data-id="${book.id}">${isFavorite(book.id) ? '❤️ В избранном' : '🤍 В избранное'}</button>
+                    <button class="rate-btn" data-id="${book.id}">⭐ Оценить</button>
+                </div>
             </div>
         </div>
     `).join("");
@@ -168,6 +165,15 @@ function renderBooksGrid(containerId, booksArray) {
     });
 }
 
+function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
 function renderCurrentPage() {
     if (currentPage === "catalog") {
         const filtered = getFilteredBooks();
@@ -185,17 +191,17 @@ function openModal(bookId) {
     const modalBody = document.getElementById("modalBody");
     modalBody.innerHTML = `
         <div class="modal-body">
-            <h2>${book.title}</h2>
-            <p><strong>Автор:</strong> ${book.author}</p>
+            <h2>${escapeHtml(book.title)}</h2>
+            <p><strong>Автор:</strong> ${escapeHtml(book.author)}</p>
             <p><strong>Год:</strong> ${book.year}</p>
-            <p><strong>Жанр:</strong> ${book.genre}</p>
+            <p><strong>Жанр:</strong> ${escapeHtml(book.genre)}</p>
             <div class="modal-rating">
                 <h3>⭐ Рейтинг: ${book.rating.toFixed(1)} (${book.ratingsCount} оценок)</h3>
                 <p>${renderStars(book.rating)}</p>
             </div>
             <h3>📖 О чём книга</h3>
-            <p>${book.fullPlot}</p>
-            <button id="modalRateBtn" style="width:100%; margin-top:20px; background:#8B5E3C; border:none; padding:12px; border-radius:40px; color:white; font-weight:600; cursor:pointer;" aria-label="Поставить оценку">⭐ Поставить оценку</button>
+            <p>${escapeHtml(book.fullPlot)}</p>
+            <button id="modalRateBtn" style="width:100%; margin-top:20px; background:#8B5E3C; border:none; padding:12px; border-radius:40px; color:white; font-weight:600; cursor:pointer;">⭐ Поставить оценку</button>
         </div>
     `;
     modal.style.display = "flex";
@@ -212,13 +218,13 @@ function openRatingModal(bookId) {
     modalBody.innerHTML = `
         <div class="modal-body">
             <h2>Оцените книгу</h2>
-            <p><strong>${book.title}</strong> — ${book.author}</p>
+            <p><strong>${escapeHtml(book.title)}</strong> — ${escapeHtml(book.author)}</p>
             <div class="modal-rating" style="text-align:center;">
                 <div id="ratingOptions">
-                    ${[1,2,3,4,5].map(r => `<span class="rate-option" data-rating="${r}" aria-label="Оценка ${r} звезды">${r}★</span>`).join("")}
+                    ${[1,2,3,4,5].map(r => `<span class="rate-option" data-rating="${r}">${r}★</span>`).join("")}
                 </div>
             </div>
-            <button id="closeRatingBtn" style="width:100%; margin-top:16px; background:#F0E8DC; border:1px solid #E8DCC8; padding:12px; border-radius:40px; color:#6B5B4F; cursor:pointer;" aria-label="Закрыть">Закрыть</button>
+            <button id="closeRatingBtn" style="width:100%; margin-top:16px; background:#F0E8DC; border:1px solid #E8DCC8; padding:12px; border-radius:40px; color:#6B5B4F; cursor:pointer;">Закрыть</button>
         </div>
     `;
     modal.style.display = "flex";
@@ -270,33 +276,23 @@ function setupFilters() {
 function setupModal() {
     const modal = document.getElementById("modal");
     const closeBtn = document.querySelector(".modal-close");
-    
-    closeBtn?.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-    
-    modal?.addEventListener("click", (e) => {
-        if (e.target === modal) modal.style.display = "none";
-    });
+    closeBtn?.addEventListener("click", () => { modal.style.display = "none"; });
+    modal?.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
 }
 
 function closeModalOnEsc() {
-    const modal = document.getElementById("modal");
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.style.display === "flex") {
-            modal.style.display = "none";
-        }
+        const modal = document.getElementById("modal");
+        if (e.key === "Escape" && modal.style.display === "flex") modal.style.display = "none";
     });
 }
 
 function setupHero() {
     const heroBtn = document.getElementById("goToCatalogBtn");
-    const header = document.getElementById("header");
     const catalogPage = document.getElementById("catalogPage");
-    
     heroBtn?.addEventListener("click", () => {
         catalogPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        header.classList.add("visible");
+        document.getElementById("header").classList.add("visible");
     });
 }
 
@@ -308,15 +304,10 @@ function init() {
     setupModal();
     setupHero();
     closeModalOnEsc();
-    
-    const header = document.getElementById("header");
-    
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 100 && !header.classList.contains("visible")) {
-            header.classList.add("visible");
-        }
+        const header = document.getElementById("header");
+        if (window.scrollY > 100 && !header.classList.contains("visible")) header.classList.add("visible");
     });
-    
     renderCurrentPage();
 }
 
