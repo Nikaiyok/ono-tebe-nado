@@ -194,17 +194,6 @@
     animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ===== CATALOG HEADER ===== */
 .catalog-header {
     margin-bottom: 32px;
@@ -284,14 +273,14 @@
     cursor: pointer;
 }
 
-/* ===== BOOK GRID (БЕЗ КАРТИНОК) ===== */
+/* ===== BOOK GRID ===== */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
 }
 
-/* ===== BOOK CARD (БЕЗ ИЗОБРАЖЕНИЙ) ===== */
+/* ===== BOOK CARD ===== */
 .book-card {
     background: #FFFFFF;
     border-radius: 20px;
@@ -453,17 +442,6 @@
     position: relative;
     animation: modalFadeIn 0.25s ease;
     border: 1px solid #E8DCC8;
-}
-
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 .modal-close {

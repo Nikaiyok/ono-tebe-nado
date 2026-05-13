@@ -3,36 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Книжная полка — личный каталог книг">
-    <title>Книжная полка — каталог книг</title>
+    <meta name="description" content="Аукцион вещей, в котором никто не вернёт - книжная полка">
+    <title>Книжная полка — аукцион литературных сокровищ</title>
     
-    <!-- ПОДКЛЮЧЕНИЕ ШРИФТОВ (ТОЛЬКО RALEWAY) -->
     <link rel="stylesheet" href="./fonts/fonts.css">
-    
-    <!-- ПОДКЛЮЧЕНИЕ ГЛОБАЛЬНЫХ СТИЛЕЙ -->
     <link rel="stylesheet" href="./styles/global.css">
-    
-    <!-- ПОДКЛЮЧЕНИЕ ОСНОВНЫХ СТИЛЕЙ -->
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
     <section class="hero">
         <div class="hero__content">
             <h1 class="hero__title">
                 <span class="hero__title-line">КНИЖНАЯ</span>
                 <span class="hero__title-line">ПОЛКА</span>
             </h1>
-            <p class="hero__subtitle">ЧИТАЙ</p>
-            <p class="hero__description">Твой личный каталог книг — открывай новые миры</p>
-            <button class="hero__btn" id="goToCatalogBtn" aria-label="Перейти к каталогу книг">ПЕРЕЙТИ К КАТАЛОГУ</button>
+            <p class="hero__subtitle">ОНО ТЕБЕ НАДО</p>
+            <button class="hero__btn" id="goToCatalogBtn">ПЕРЕЙТИ К КАТАЛОГУ</button>
         </div>
         <div class="hero__bookshelf"></div>
     </section>
 
     <header class="header" id="header">
         <div class="header__logo">
-            <a href="/" class="header__logo-link" aria-label="На главную">
+            <a href="/" class="header__logo-link">
                 <span class="header__logo-icon">📚</span>
                 <span class="header__logo-text">КНИЖНАЯ ПОЛКА</span>
             </a>
@@ -47,17 +40,16 @@
         </div>
     </header>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="main-content">
         <section id="catalogPage" class="page active">
             <div class="catalog-header">
-                <h2 class="catalog__title">Каталог книг</h2>
+                <h2 class="catalog__title">ЛОТЫ</h2>
                 <p class="catalog__count"><span id="booksCount">0</span> книг в коллекции</p>
             </div>
 
             <div class="filters">
                 <div class="filters__search">
-                    <input type="text" id="searchInput" placeholder="Поиск по названию или автору..." aria-label="Поиск книг">
+                    <input type="text" id="searchInput" >
                 </div>
                 <div class="filters__categories">
                     <button class="filter-btn active" data-genre="all">ВСЕ</button>
@@ -69,7 +61,7 @@
                     <button class="filter-btn" data-genre="Философия">ФИЛОСОФИЯ</button>
                 </div>
                 <div class="filters__sort">
-                    <select id="sortSelect" aria-label="Сортировка книг">
+                    <select id="sortSelect">
                         <option value="title">По названию</option>
                         <option value="author">По автору</option>
                         <option value="year">По году</option>
@@ -83,21 +75,20 @@
 
         <section id="favoritesPage" class="page">
             <div class="catalog-header">
-                <h2 class="catalog__title">Избранное</h2>
-                <p class="catalog__count">Ваши любимые книги</p>
+                <h2 class="catalog__title">ИЗБРАННОЕ</h2>
+                <p class="catalog__count">Ваши любимые лоты</p>
             </div>
             <div class="catalog-grid" id="favoritesGrid"></div>
         </section>
     </main>
 
-    <!-- ПОДВАЛ -->
     <footer class="footer">
         <div class="footer__content">
             <div class="footer__logo">
                 <span class="footer__logo-icon">📚</span>
                 <span>КНИЖНАЯ ПОЛКА</span>
             </div>
-            <p class="footer__copy">© 2024 Книжная полка. Все права защищены.</p>
+            <p class="footer__copy">© 2024 Книжная полка. Аукцион вещей, в котором никто не вернёт.</p>
             <address class="footer__contacts">
                 <a href="tel:+74951234567" class="footer__phone">+7 (495) 123-45-67</a>
                 <a href="mailto:club@bookclub.ru" class="footer__email">club@bookclub.ru</a>
@@ -105,10 +96,9 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО -->
-    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Подробная информация о книге">
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <button class="modal-close" aria-label="Закрыть">✕</button>
+            <button class="modal-close">✕</button>
             <div id="modalBody"></div>
         </div>
     </div>
