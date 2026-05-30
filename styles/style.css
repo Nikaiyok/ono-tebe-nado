@@ -1,194 +1,222 @@
-/* Исправлено: правило после открывающей скобки на новой строке (пункт 10) */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  max-width: 1100px;          /* Исправлено: убрана горизонтальная прокрутка (пункт 16) */
-  margin: 0 auto;
-  font-family: 'Raleway', sans-serif;
-  background-color: #fff;
-  color: #000;
-}
-
-/* Шапка */
 .header {
+  margin: 92px 50px 96px 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  padding: 92px 50px 96px 50px;
-}
-
-.header__menu {
-  justify-self: start;
+  grid-template-columns: 3.9fr 0.9fr 3.9fr;
 }
 
 .header__links-list {
   display: flex;
-  gap: 32px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
 }
 
+.header__links-list-main {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__links-list-item,
 .header__links-list-item_no-bullit {
-  list-style: none;
+  display: list-item;
+  list-style-type: none;
+}
+
+.header__link_active,
+.header__link {
+  text-decoration: none;
+  color: #000;
+  font-family: Raleway, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .header__link {
-  font-size: 18px;
-  font-weight: 400;
-  text-underline-position: under;
-  color: #000;
+  display: list-item;
+  list-style-type: circle;
+  border-bottom: 1px solid black;
 }
 
+/* Элементу с классои header__logo строго заданы ращмеры,
+так как это логотип, имеющий строгий размер */
+
 .header__logo {
-  justify-self: center;
-  display: block;
-  width: 148px;
+  display: grid;
+  align-content: start;
+  width: 138px;
+  height: 105px;
 }
 
 .header__logo-image {
-  width: 100%;
   display: block;
-}
-
-.address {
-  font-style: normal;
-  font-size: 18px;
-  line-height: 1.35;
-  color: #000;
-}
-
-.address a {
-  color: #000;
-  text-underline-position: under;
+  align-content: start;
 }
 
 .header__address {
-  justify-self: end;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
-/* Cover */
+.contacts-element {
+  width: 240px;
+  padding-right: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-style: normal;
+  color: #000;
+  font-family: Raleway, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.6px;
+}
+
+.mail-address,
+.phone-address {
+  text-decoration: none;
+  display: flex;
+  align-self: flex-start;
+  border-bottom: 0.5px solid black;
+}
+
+.city-address-second,
+.city-address-first {
+  display: flex;
+  align-self: flex-start;
+}
+
+/* Элементу с классом cover строго заданы размеры,
+так как это фоновое изображение */
+
 .cover {
-  position: relative;
-  background-image: url('../images/cover.jpg');
+  background-image: url(../images/cover.jpg);
   background-size: cover;
   background-position: center;
-  padding: 165px 50px 50px 50px;
-  min-height: 757px;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
-.cover__title,
-.cover__description {
-  position: relative;
+.cover__title {
   z-index: 2;
-  color: #fff;
+  padding-top: 165px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  text-transform: uppercase;
+  row-gap: 19px;
+  grid-template-areas:
+    "start start start"
+    "center center center"
+    "end end end ";
 }
 
-.cover__title {
-  font-weight: 700;
+.aligned-text_right,
+.aligned-text_center,
+.aligned-text {
+  color: #fff;
+  font-family: Raleway, sans-serif;
   font-size: 100px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin: 0 0 120px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 30px;
 }
 
 .aligned-text {
-  display: block;
+  text-align: start;
+  grid-area: start;
+  line-height: 115%;
+  margin: 0px 50px;
 }
 
 .aligned-text_center {
-  display: block;
+  line-height: 100%;
   text-align: center;
+  grid-area: center;
+  margin: 0px 95px 0px 65px;
+  justify-self: center;
 }
 
 .aligned-text_right {
-  display: block;
-  text-align: right;
+  line-height: 70px;
+  text-align: end;
+  grid-area: end;
+  margin: 0px 50px 0px 50px;
 }
 
-.letter-spacing-extended {
-  letter-spacing: 0.6em;
+.new-letter-spacing {
+  letter-spacing: 60px;
 }
 
 .no-letter-spacing {
-  letter-spacing: 0;
+  letter-spacing: 0px;
 }
 
 .cover__description {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin: 105px 50px 0px 50px;
+  padding-bottom: 50px;
+}
+
+.bet-button,
+.cover__description-text {
+  color: #fff;
+  text-align: center;
+  font-family: Raleway, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-transform: uppercase;
 }
 
 .cover__description-text {
-  font-size: 22px;
-  font-weight: 400;
-  word-spacing: 18px;
-  text-transform: uppercase;
-  margin: 0;
+  padding-left: 372px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  letter-spacing: 0px;
+  word-spacing: 17px;
+}
+
+.cover__description-text-new-word-spacing{
+  word-spacing: 19px;
 }
 
 .bet-button {
-  font-family: 'Raleway', sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  text-transform: uppercase;
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  display: flex;
   padding: 12px 32px;
-  cursor: pointer;
-  transition: 0.2s;
+  border: 1px solid #ffffff;
+  background: none;
 }
 
-.bet-button:hover {
-  background: #fff;
-  color: #000;
-}
-
-/* Лоты */
 .lots {
-  padding: 180px 50px 0 50px;
+  margin: 180px 50px 0px 50px;
+  flex-shrink: 0;
 }
 
 .lots__heading {
+  margin-left: 40px;
+  margin-bottom: 27px;
+  color: #000;
+  font-family: Raleway, sans-serif;
   font-size: 40px;
+  font-style: normal;
   font-weight: 700;
+  line-height: normal;
   text-transform: uppercase;
-  margin: 0 0 27px 0;
-  padding-left: 40px;
 }
 
 .lots__card-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  gap: 25px;
+  list-style-type: none;
+  justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.lots__card-list-item {
-  flex: 1 1 334px;
-  min-width: 280px;
 }
 
 .card-link {
@@ -197,134 +225,181 @@ body {
   height: 100%;
 }
 
+/* Элеменам с классом card задал четку ширину, 
+так как данный элемент состоит из определенного контента и 
+для его позиционированиия необходимо значение ширины
+Для корректного отображения на устройствах с другой диагональю экрана 
+родительскому списку добавлено свойство flex-wrap: wrap */
+
 .card {
-  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+  width: 430px;
+  min-height: 450px;
+  height: 100%;
+  padding: 50px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  padding: 50px 40px 48px 40px;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  min-height: 450px;
 }
 
 .card_type_film {
-  background-image: url('../images/card-lot-01.jpg');
+  background-image: url(../images/card-lot-01.jpg);
+  background-size: cover;
 }
 
 .card_type_book {
-  background-image: url('../images/card-lot-02.jpg');
+  background-image: url(../images/card-lot-02.jpg);
+  background-size: cover;
 }
 
 .card_type_picture {
-  background-image: url('../images/card-lot-03.jpg');
+  background-image: url(../images/card-lot-03.jpg);
+  background-size: cover;
 }
 
 .card__title {
-  position: relative;
-  z-index: 2;
+  color: #fff;
+  font-family: Raleway, sans-serif;
   font-size: 22px;
+  font-style: normal;
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-position: under;
-  margin: 0 0 20px 0;
+  line-height: 120%;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  text-decoration-skip-ink: none;
 }
 
 .card__text {
-  position: relative;
-  z-index: 2;
+  color: #fff;
+  font-family: Raleway, sans-serif;
   font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  margin: 0;
+  line-height: 120%;
+  justify-content: space-around;
 }
 
 .lots__look-more-link {
-  display: inline-block;
+  color: #000;
+  font-family: Raleway, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   margin-top: 30px;
   margin-left: 40px;
-  font-size: 20px;
-  color: #000;
-  text-underline-position: under;
+  text-decoration: none;
 }
 
-/* About */
-.about {
-  padding: 120px 50px 0 50px;
-  display: grid;
-  grid-template-columns: 334px 1fr;
-  gap: 25px;
+.lots__look-more-link-text {
+  text-decoration: none;
+  border-bottom: 1px solid black;
 }
+
+.about {
+  margin: 180px 50px 184px 50px;
+}
+
+.about__column {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+}
+
+/* В случае с классом about__logo я строго указал размеры блока, так как
+это необходимо для формирования черного круга нужного размера */
 
 .about__logo {
-  background-color: #000;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 240px;
   height: 240px;
-  border-radius: 50%;
-  margin: 0 auto;
+  border-radius: 120px;
+  background-color: #000;
+  justify-self: center;
 }
 
+/* В случае с классом about__logo-image я строго указал его размеры, 
+так как это класс, относящийся к логотипу */
+
 .about__logo-image {
+  display: grid;
   width: 148px;
+  height: 114px;
+  align-self: center;
+  margin-left: 46px;
+}
+
+.about__title-and-text-wrapper {
+  margin: 101px 0px 0px 25px;
+  display: grid;
+  row-gap: 30px;
 }
 
 .about__title {
+  color: #000;
+  font-family: Raleway, sans-serif;
   font-size: 40px;
+  font-style: normal;
   font-weight: 700;
+  line-height: normal;
   text-transform: uppercase;
-  margin: 0 0 100px 0;
+  margin-bottom: 70px;
 }
 
 .about__text {
+  color: #000;
+  font-family: Raleway, sans-serif;
   font-size: 20px;
-  line-height: 1.2;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
 }
 
-/* Footer */
-.footer {
-  padding: 180px 50px 90px 50px;
+footer {
+  margin: 0px 50px 90px 50px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
 }
 
-.footer__address {
-  text-align: left;
-  max-width: 240px;
+.footer__menu {
+  display: grid;
+  align-content: start;
+  justify-items: center;
 }
 
 .footer__menu-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  list-style-type: none;
 }
 
 .footer__menu-link {
-  font-size: 18px;
+  display: grid;
+  align-self: center;
   color: #000;
-  text-underline-position: under;
+  text-align: center;
+  font-family: Raleway, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-skip-ink: none;
 }
+
+.footer__menu-link_active {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* В элементе с классом foter__social-list я задал значения ширины
+для того, чтобы не задавать размеры каждой иконке социальной сети. 
+В моем случае достаточно выставить нужное расстояние между элементами
+и иконки становятся нужного размера. */
 
 .footer__social-list {
+  list-style-type: none;
   display: flex;
   gap: 48px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
-.footer__social-icon {
+.footer__social-list-item-logo{
   width: 48px;
-  height: 48px;
 }
