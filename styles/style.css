@@ -1,9 +1,3 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
 .header {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
@@ -17,14 +11,14 @@
 .header_menu {
   display: flex;
   justify-self: center;
+
 }
 
 .menu_links {
   display: flex;
   gap: 32px;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  list-style-type: circle;
+  padding-right: 7px;
 }
 
 .link_list {
@@ -49,7 +43,7 @@
 }
 
 .address {
-  padding-left: 0;
+  padding-left: 185px;
   font-size: 18px;
   line-height: 24.3px;
   letter-spacing: 0.18px;
@@ -57,6 +51,7 @@
   list-style-type: none;
   font-style: normal;  
 }
+
 
 .cover {
   position: relative;
@@ -70,7 +65,7 @@
 }
 
 .overlay {
-  top: 1;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -88,7 +83,7 @@
   padding: 165px 50px 147px;
   gap: 20px;   
 } 
-
+ 
 .cover_title span { 
   font-size: 100px; 
   font-weight: 700;  
@@ -111,15 +106,15 @@
 }
 
 .text_cover { 
-  letter-spacing: 30px;
+  letter-spacing: 30px; /* буква о разрыв 30, буквы те разрыв 30, буквы ад разрыв 30 */
 }
 
 .text_cover .no_letter_spacing {
-  letter-spacing: 0px;
+  letter-spacing: 0px; /* сброс межбуквенного разрыва */ 
 }
 
 .text_cover .letter_spacing {
-  letter-spacing: 60px;
+  letter-spacing: 60px; /* буквы но разрыв 60, буквы бе разрыв 60, буква н разрыв 60 */ 
 }
 
 .cover_description {
@@ -151,27 +146,28 @@
 }
 
 .title_lots {
-  padding: 0;
-  margin-top: 179px;
-  margin-bottom: 26px;
+  padding-top: 179px;
+  padding-bottom: 26px;
+  padding-left: 64px;
   color: #000;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
-  text-align: center;
 }
 
 .container_lots {
   display: flex;
   flex-wrap: wrap;
+  list-style-type: none;
   gap: 25px;
-  justify-content: center;
-  padding: 0;
+  justify-content: flex-start; /* указал start */ 
+  padding: 0; 
   margin: 0 auto;
+  margin-left: 20px; /* левый отступ чтобы совпадало с макетом */  
 }
 
 .card_lots a { 
-  text-decoration: none;
+  text-decoration: none; /* дефолтное подчеркивание текста убрано */ 
 }
 
 .card_lots {
@@ -217,7 +213,6 @@
 .link_lots { 
   text-decoration: none;
 }
-
 .text_on_card {
   color: white;
   font-size: 20px;
@@ -234,8 +229,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 23.48px;
-  text-align: center;
-  margin: 0 auto;
+  margin-left: 64px;
 }
 
 .about {
@@ -244,10 +238,9 @@
 
 .about_container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 334px repeat(1, 1fr);
   gap: 25px;
-  padding: 34px 0 0;
-  align-items: center;
+  padding: 34px 24px 0px;
 }
 
 .about_logo {
@@ -278,10 +271,65 @@
   font-size: 40px;
   font-weight: 700;
   line-height: 46.96px;
-  text-align: center;
 }
 
 .about_text {
   align-self: flex-start;
   font-family: "Raleway", sans-serif;
   color: black;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.text_up {
+  padding-top: 76px;
+}
+
+.text_down {
+  padding-top: 25px;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 180px 50px 88px;
+  gap: 140px;
+  align-items: flex-start;
+}
+
+.footer_address {
+  font-style: normal;
+  padding-left: 0px; 
+}
+
+.footer_menu {
+  padding-left: 35px;
+}
+
+.footer_menu_links {
+  list-style-type: none;
+  text-underline-offset: 3px;
+}
+
+.footer_links {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer_main {
+  text-decoration: none;
+}
+
+.images_footer {
+  width: 48px;
+  height: 48px;
+}
+
+.footer_images {
+  display: flex;
+  gap: 48px;
+}
